@@ -1,0 +1,20 @@
+import "oaidl.idl";
+import "ocidl.idl";
+import "IOberonOleObject.idl";
+
+[ uuid(91C4D7F1-A0E8-11D3-A2BE-005004435167),
+	version(1.0),
+	helpstring("ETH Oberon, OLE Objects 1.0 Type Library") ]
+
+library OberonOleObjectLib {
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[ uuid(91C4D7F0-A0E8-11D3-A2BE-005004435167),
+		helpstring("ETH Oberon, OLE Objects Class") ]
+
+	coclass OberonOleObject {
+		[ default ] interface IOberonOleObject;
+		[ default, source ] dispinterface IOberonOleEvent;
+	};
+};

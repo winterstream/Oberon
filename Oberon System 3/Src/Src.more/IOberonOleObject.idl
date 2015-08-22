@@ -1,0 +1,41 @@
+import "oaidl.idl";
+import "ocidl.idl";
+
+[ object, dual, 
+	uuid(91C4D7F2-A0E8-11D3-A2BE-005004435167),
+	helpstring("ETH Oberon, OLE Objects Interface") ]
+interface IOberonOleObject : IDispatch {
+	[propget]
+	HRESULT Gen([out, retval] BSTR* szGen);
+	[propget]
+	HRESULT Name([out, retval] BSTR* szName);
+	[propput]
+	HRESULT Name([in] BSTR szName);
+
+	HRESULT GetBool ([in] BSTR name, [out, retval] BOOL* value);
+	HRESULT GetInt ([in] BSTR name, [out, retval] int* value);
+	HRESULT GetReal ([in] BSTR name, [out, retval] float* value);
+	HRESULT GetLongReal ([in] BSTR name, [out, retval] double* value);
+	HRESULT GetString ([in] BSTR name, [out, retval] BSTR* value);
+
+	HRESULT SetBool ([in] BSTR name, [in] BOOL value);
+	HRESULT SetInt ([in] BSTR name, [in] int value);
+	HRESULT SetReal ([in] BSTR name, [in] float value);
+	HRESULT SetLongReal ([in] BSTR name, [in] double value);
+	HRESULT SetString ([in] BSTR name, [in] BSTR value);
+
+	HRESULT GetLink ([in] BSTR name, [out, retval] IOberonOleObject** value);
+	HRESULT SetLink ([in] BSTR name, [in] IOberonOleObject* value);
+	HRESULT FindObj ([in] BSTR name, [out, retval] IOberonOleObject** value);
+
+	HRESULT Update ();
+	HRESULT Execute ([in] BSTR cmd);
+};
+
+[ uuid(91C4D7F3-A0E8-11D3-A2BE-005004435167),
+	helpstring("ETH Oberon, OLE Objects Event Interface") ]
+dispinterface IOberonOleEvent {
+	properties:
+	methods:
+	[ id(1) ] void Event([in] int id);
+};

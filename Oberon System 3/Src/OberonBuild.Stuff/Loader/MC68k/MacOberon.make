@@ -1,0 +1,1 @@
+#   File:       MacOberon.make#   Target:     MacOberon#   Sources:    MacOberon.a#   Created:    29 April 1994 16:29:52OBJECTS = MacOberon.a.oMacOberon ÄÄ MacOberon.make {OBJECTS}	Link -t APPL -c '????' -sym on -mf ¶		{OBJECTS} ¶		"{Libraries}"Runtime.o ¶		"{Libraries}"Interface.o ¶		-o MacOberonMacOberon.a.o Ä MacOberon.make MacOberon.a	 Asm -sym on MacOberon.a
